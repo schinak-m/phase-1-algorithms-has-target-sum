@@ -1,13 +1,31 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const numbersSeen = {};
+  for (const number of array) {
+    const complement = target - number;
+    if (numbersSeen[complement]) {
+      return true;
+    }
+    numbersSeen[number] = true;
+  }
+  return false;
 }
 
 /* 
   Write the Big O time complexity of your function here
+  Big O time complexity: O(n)
 */
 
 /* 
   Add your pseudocode here
+
+  Create a hash table called numbersSeen
+  For each number in array
+    Calculate complement as target minus number
+    If complement is in numbersSeen
+      Return true
+    Add number to numbersSeen with a value of true
+  Return false
 */
 
 /*
